@@ -25,33 +25,54 @@
          font-size: 24px;
     }
 
+    .err {
+        border: 2px solid red;
+    }
+
     </style>
+
+    <script>
+    function markFunction(x) {
+        if (x.value == "") x.className = "err"
+        else x.className = ""
+    }
+
+    function validateForm() {
+        return confirm("Are you sure you want to proceed?")
+    }
+
+    </script>
 </head>
 
 <body>
     <header>2nd Graded Exercise - Beryllium</header><br>
-    <form id="dForm" action="submit" method="post">
+    <form id="dForm" action="submit" method="post"
+        onsubmit="return validateForm()"
+        onreset="return validateForm()"
+    >
+        
+
         <fieldset>
             <legend>Student Information</legend><br>
 
         <label for="studentID">Student ID:
-        <input type="number" id="studentID" name="studentID" placeholder="Enter your Student ID" required><br><br>
+        <input type="number" id="studentID" name="studentID" placeholder="Enter your Student ID" onblur="markFunction(this)" required><br><br>
         </label>
 
         <label for="fullName">Full Name:
-        <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required><br><br>
+        <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" onblur="markFunction(this)" required><br><br>
         </label>
 
         <label for="birthday">Birthday:
-        <input type="date" id="birthday" name="birthday" placeholder="Enter your birthday" required><br><br>
+        <input type="date" id="birthday" name="birthday" placeholder="Enter your birthday" onblur="markFunction(this)" required><br><br>
         </label>
 
         <label for="email">Email:
-        <input type="text" id="email" name="email" placeholder="Enter your email" required><br><br>
+        <input type="text" id="email" name="email" placeholder="Enter your email" onblur="markFunction(this)" required><br><br>
         </label>
 
         <label for="phone">Mobile phone:
-        <input type="text" id="phone" name="phone" placeholder="Enter your mobile phone" required><br><br>
+        <input type="text" id="phone" name="phone" placeholder="Enter your mobile phone" onblur="markFunction(this)" required><br><br>
         </label>
 
         <label for="gradeLevel">Grade Level:
@@ -83,7 +104,7 @@
         </label><br><br>
 
         <label for="shortessay">Why do you want to join?</label><br>
-        <textarea id="shortessay" name="shortessay" rows="4" cols="50" placeholder="Write a short essay here..." required></textarea>
+        <textarea id="shortessay" name="shortessay" rows="4" cols="50" placeholder="Write a short essay here..." onblur="markFunction(this)" required></textarea>
         <br><br>
 
         <fieldset id="actionButtons">
