@@ -25,14 +25,6 @@
          font-size: 24px;
     }
 
-    .err {
-        border: 2px solid red;
-    }
-
-    :focus {
-        outline: 3px solid #0074cc;
-    }
-
     legend {
         font-weight: bold;
         font-size: 22px;
@@ -46,13 +38,21 @@
         width: 300px;
         padding: 5px;
         font-size: 14px;
-        border: 1px solid #ccc;
         border-radius: 4px;
         box-sizing: border-box;
         margin-top: 3px;
         margin-bottom: 4px;
         resize: vertical;
         transition: all 0.3s ease;
+    }
+
+    .err {
+        border: 3px solid red;
+    }
+
+    input[type="text"]:hover, input[type="number"]:hover, input[type="date"]:hover, select:hover, textarea:hover {
+        box-shadow: 0 0 5px rgba(0, 116, 204, 0.5);
+        transform: scale(1.02);
     }
 
     input[type="radio"] {
@@ -64,11 +64,6 @@
 
     input[type="radio"]:hover {
         scale: 1.3;
-    }
-
-    input[type="text"]:hover, input[type="number"]:hover, input[type="date"]:hover, select:hover, textarea:hover {
-        scale: 1.02;
-        border-color: #0074cc;
     }
 
     input[type="submit"], input[type="reset"] {
@@ -91,7 +86,7 @@
     <script>
     function markFunction(x) {
         if (x.value == "") x.className = "err"
-        else x.className = ""
+        else x.className = "";
     }
 
     function validateForm() {
