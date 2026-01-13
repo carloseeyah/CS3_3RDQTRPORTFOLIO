@@ -1,0 +1,101 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="2nd Graded Exercise">
+    <meta name="author" content="CM Sia">
+    <link rel="stylesheet" href="#">
+    <script src="script.js" defer></script>
+    <title>2nd Graded Exercise</title>
+
+    <style>
+
+    fieldset {
+        border: 2px solid #0074cc;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    header {
+        background-color: #0074cc;
+         color: white;
+         padding: 15px;
+         text-align: left;
+         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+         font-size: 24px;
+    }
+
+    </style>
+</head>
+
+<body>
+    <header>2nd Graded Exercise - Beryllium</header><br>
+    <form id="dForm" action="submit" method="post">
+        <fieldset>
+            <legend>Student Information</legend><br>
+
+        <label for="studentID">Student ID:
+        <input type="number" id="studentID" name="studentID" placeholder="Enter your Student ID" required><br><br>
+        </label>
+
+        <label for="fullName">Full Name:
+        <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required><br><br>
+        </label>
+
+        <label for="birthday">Birthday:
+        <input type="date" id="birthday" name="birthday" placeholder="Enter your birthday" required><br><br>
+        </label>
+
+        <label for="email">Email:
+        <input type="text" id="email" name="email" placeholder="Enter your email" required><br><br>
+        </label>
+
+        <label for="phone">Mobile phone:
+        <input type="text" id="phone" name="phone" placeholder="Enter your mobile phone" required><br><br>
+        </label>
+
+        <label for="gradeLevel">Grade Level:
+        <select name="gradeLevel" id="gradeLevel" required>
+            <option value="" disabled selected>Select your grade level</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        </select>
+        </label><br><br>
+
+        <label for="status">Extern/Intern:
+        <input type="radio" name="status" value="Intern" checked>
+        <input type="radio" name="status" value="Extern">
+        </label><br><br>
+
+        <label for="club">Preferred Club:
+            <select name="club" id="club" required>
+                <option value="" disabled selected>Select your preferred club</option>
+                <option value="sagala">SaGala</option>
+                <option value="flux">Flux</option>
+                <option value="math">Math Club</option>
+                <option value="himig">Himig Agham</option>
+                <option value="invictus">Invictus</option>
+            </select>
+        </label><br><br>
+
+        <label for="shortessay">Why do you want to join?</label><br>
+        <textarea id="shortessay" name="shortessay" rows="4" cols="50" placeholder="Write a short essay here..." required></textarea>
+        <br><br>
+
+        <fieldset id="actionButtons">
+            <legend>Action Buttons</legend>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+        </fieldset>
+
+
+    </fieldset>
+
+    </form>
+
+</body>
+</html>
