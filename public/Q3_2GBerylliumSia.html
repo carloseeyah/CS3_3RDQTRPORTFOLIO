@@ -84,13 +84,33 @@
     </style>
 
     <script>
+
+        document.getElementById("dForm").addEventListener("submit", function(x) {
+            x.preventDefault();
+
+            if (!confirm("Are you confirming your submission?")) return;
+
+            const data = Object.fromEntries(new FormData(this).entries());
+
+            let signups = JSON.parse(localStorage.getItem("sign-ups")) || [];
+            signups.push(data);
+            localStorage.setItem("sign-ups", JSON.stringify(signups));
+
+            alert("Submission saved successfully!");
+            this.reset();
+        });
+
+        document.getElementById("dForm").addEventListener("reset", function(x) {
+            if(!confirm("Are you sure you want to reset the form?")) { x.preventDefault(); }
+        });
+
+        function goView(){
+            window.location.href="Q3_3GBerylliumSiaView.html";
+        }
+
     function markFunction(x) {
         if (x.value == "") x.className = "err"
         else x.className = "";
-    }
-
-    function validateForm() {
-        return confirm("Are you sure you want to proceed?")
     }
 
     function changeColor(x) {
@@ -104,9 +124,10 @@
 
 <body>
     <header>2nd Graded Exercise - Beryllium</header><br>
-    <form id="dForm" action="submit" method="post"
+    <form id="dForm" method="post"
         onsubmit="return validateForm()"
         onreset="return validateForm()"
+        localstorage
     >
         
 
@@ -169,6 +190,7 @@
             <legend>Action Buttons</legend>
         <input type="submit" value="Submit">
         <input type="reset" value="Reset">
+        <input type="button" value="View Sign-Ups" onclick="goView()">
         </fieldset>
 
 
