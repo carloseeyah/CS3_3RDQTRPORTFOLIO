@@ -6,6 +6,7 @@
     <meta name="description" content="3rd Quarter Portfolio">
     <meta name="keywords" content="2nd Graded Exercise">
     <meta name="author" content="CM SIA">
+    <script src="3rdGraded.js" defer></script>
 
     <title>List of Students Who Signed-Up</title>
 
@@ -106,62 +107,18 @@
 
     <label>
         Filter by Club:
-        <select id="clubFilter" onchange="filterTable()">
-            <option value="SaGala">SaGala</option>
-            <option value="Flux">Flux</option>
-            <option value="Math Club">Math Club</option>
-            <option value="Invictus">Invictus</option>
-            <option value="Likha">Likha</option>
+        <select id="filter" onchange="displaySignups()">
+            <option value="sagala">SaGala</option>
+            <option value="flux">Flux</option>
+            <option value="math club">Math Club</option>
+            <option value="invictus">Invictus</option>
+            <option value="likha">Likha</option>
         </select>
 
-        <p>Total Sign-Ups: <span id="total">0</span></p>
+        <p>Total Sign-Ups: <span id="total"></span></p>
 
         <div id="output"></div>
 
         <a href="Q3_2GBerylliumSia.html">Go Back to Sign-Up Form</a>
     </label>
-
-    <script>
-        const signups = JSON.parse(localStorage.getItem('sign-ups')) || [];
-        const output = document.getElementById('output');
-        const total = document.getElementById('total');
-        const filter = document.getElementById('clubFilter');
-
-        function displaySignups() {
-            if(signsup.length === 0) {
-                output.innerHTML = '<p>No sign-ups recorded</p>';
-                total.textContent = '0';
-                return;
-            }
-
-            let list = filter.value === "all" ? signups : signups.filter(s => s.club === filter.value);
-
-            if (list.length === 0) {
-                output.innerHTML = '<p>No sign-ups for the selected club</p>';
-                total.textContent = '0';
-                return;
-            }
-
-            let html = '<table><tr><th>Club</th><th>Student ID</th><th>Full Name</th><th>GradeLevel</th><th>Email</th><th>Phone</th><th>Intern/Extern</th></tr>';
-
-            list.forEach(s => {
-                html += `<tr>
-                            <td>${s.club}</td>
-                            <td>${s.studentID}</td>
-                            <td>${s.fullName}</td>
-                            <td>${s.gradeLevel}</td>
-                            <td>${s.email}</td>
-                            <td>${s.phone}</td>
-                            <td>${s.internExtern}</td>
-                         </tr>`;
-            });
-
-            html += '</table>';
-            output.innerHTML = html;
-            total.textContent = list.length;
-        }
-
-        filter.addEventListener('change', displaySignups);
-        displaySignups();
-    </script>
 </body>
